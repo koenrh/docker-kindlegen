@@ -13,5 +13,5 @@ action "Build" {
 
 action "Hadolint" {
   uses = "actions/docker/cli@76ff57a"
-  args = "run hadolint/hadolint hadolint - < Dockerfile"
+  args = "run --rm --interactive hadolint/hadolint < Dockerfile"
 }
