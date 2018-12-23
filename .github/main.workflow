@@ -1,9 +1,17 @@
 workflow "Build all branches" {
   on = "push"
-  resolves = ["Build"]
+  resolves = [
+    "Build",
+    "Hadolint",
+  ]
 }
 
 action "Build" {
   uses = "actions/docker/cli@76ff57a"
   args = "build -t koenrh/kindlegen ."
+}
+
+action "Hadolint" {
+  uses = "actions/docker/cli@76ff57a"
+  args = "run hadolint/hadolint hadolint - < Dockerfile"
 }
