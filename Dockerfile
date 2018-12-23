@@ -5,7 +5,6 @@ RUN apk add --no-cache \
   curl \
   tar
 
-# NOTE: https://www.amazon.com/gp/feature.html?docId=1000765211
 RUN curl "https://kindlegen.s3.amazonaws.com/kindlegen_linux_2.6_i386_v2_9.tar.gz" \
   -o /tmp/kg.tar.gz \
   && mkdir -p /usr/src/kg \
