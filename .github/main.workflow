@@ -23,7 +23,7 @@ action "Login to Docker Hub" {
 }
 
 action "Tag image" {
-  uses = "actions/docker/cli@76ff57a"
+  uses = "actions/docker/tag@76ff57a"
   args = "kindlegen koenrh/kindlegen"
   needs = [
     "Login to Docker Hub",
