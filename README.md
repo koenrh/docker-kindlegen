@@ -5,6 +5,8 @@ dockerized.
 
 ## Usage
 
+You could run KindleGen in a container by executing the following `docker` command.
+
 ```bash
 docker run -it --rm \
   --volume "$PWD:/home/kindlegen" \
@@ -12,8 +14,8 @@ docker run -it --rm \
   /home/kindlegen/modern-vim.epub
 ```
 
-You could make this command more easily accessible by putting it an executable,
-and make sure that it is available in your `$PATH`. Alternative, you could create
+You could make this command more easily accessible by putting it in an executable,
+and make sure that it is available in your `$PATH`. Alternatively, you could create
 wrapper functions for your `docker run` commands ([example](https://github.com/jessfraz/dotfiles/blob/master/.dockerfunc)).
 
 ```bash
