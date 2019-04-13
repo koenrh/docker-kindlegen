@@ -20,14 +20,9 @@ wrapper functions for your `docker run` commands ([example](https://github.com/j
 
 ```bash
 kindlegen() {
-  local file args path
-
-  file=${*: -1}
-  args=${*:1:${#@}-1}
-  path="/home/kindlegen/$file"
-
   docker run -it --rm \
-  --volume "$PWD:/home/kindlegen" \
-  koenrh/kindlegen "$path" "$args"
+    --volume "$PWD:/home/kindlegen" \
+    --name kindlegen \
+    koenrh/kindlegen "$@"
 }
 ```
