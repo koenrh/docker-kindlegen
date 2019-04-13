@@ -23,7 +23,7 @@ RUN curl "https://kindlegen.s3.amazonaws.com/kindlegen_linux_2.6_i386_v${KINDLEG
   && tar -xzf "kindlegen-$KINDLEGEN_VERSION.tar.gz" -C /app \
   && rm "kindlegen-$KINDLEGEN_VERSION.tar.gz"
 
-WORKDIR /app
+WORKDIR "$HOME"
 USER kindlegen
 
 # NOTE: https://kindlegen.s3.amazonaws.com/Readme.txt
