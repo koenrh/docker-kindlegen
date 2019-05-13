@@ -1,4 +1,4 @@
-FROM alpine:3.9.3@sha256:97e225314fd094c1e16209c4f0ad8103af20a57d45153e5bcfa04f3a2dc50099
+FROM alpine:3.9.4@sha256:769fddc7cc2f0a1c35abb2f91432e8beecf83916c421420e6a6da9f8975464b6
 LABEL maintainer "Koen Rouwhorst <info@koenrouwhorst.nl>"
 
 # NOTE: https://www.amazon.com/gp/feature.html?docId=1000765211
