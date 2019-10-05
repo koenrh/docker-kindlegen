@@ -1,0 +1,36 @@
+---
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  pushImage:
+    name: Build and push Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Build image
+        uses: actions/docker/cli@master
+        with:
+          args: build -t kindlegen .
+
+      - name: Login to Docker Hub
+        uses: actions/docker/login@master
+        env:
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+
+      - name: Tag Docker image
+        uses: actions/docker/tag@master
+        with:
+          args: kindlegen koenrh/kindlegen
+
+      - name: Push image to Docker Hub
+        uses: actions/docker/cli@master
+        env:
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        with:
+          args: push koenrh/kindlegen
