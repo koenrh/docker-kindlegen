@@ -12,25 +12,16 @@ jobs:
       - uses: actions/checkout@master
 
       - name: Build image
-        uses: actions/docker/cli@master
-        with:
-          args: build -t kindlegen .
+        run: docker build -t kindlegen .
 
       - name: Login to Docker Hub
-        uses: actions/docker/login@master
+        run: docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
         env:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
 
       - name: Tag Docker image
-        uses: actions/docker/tag@master
-        with:
-          args: kindlegen koenrh/kindlegen
+        run: docker tag kindlegen koenrh/kindlegen
 
       - name: Push image to Docker Hub
-        uses: actions/docker/cli@master
-        env:
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        with:
-          args: push koenrh/kindlegen
+        run: docker push koenrh/kindlegen
