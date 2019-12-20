@@ -5,10 +5,7 @@ LABEL maintainer "Koen Rouwhorst <info@koenrouwhorst.nl>"
 ENV KINDLEGEN_VERSION="2.9"
 ENV KINDLEGEN_CHECKSUM="9828db5a2c8970d487ada2caa91a3b6403210d5d183a7e3849b1b206ff042296"
 
-RUN apk add --no-cache \
-  ca-certificates=~20190108 \
-  curl=~7 \
-  tar=~1
+RUN apk add --no-cache ca-certificates curl tar
 
 ENV HOME /home/kindlegen
 RUN adduser -u 1001 -D kindlegen \
