@@ -1,4 +1,4 @@
-FROM alpine:3.12.3@sha256:074d3636ebda6dd446d0d00304c4454f468237fdacf08fb0eeac90bdbfa1bac7
+FROM alpine:3.13.0@sha256:d0710affa17fad5f466a70159cc458227bd25d4afb39514ef662ead3e6c99515
 LABEL maintainer "Koen Rouwhorst <info@koenrouwhorst.nl>"
 
 # NOTE: Amazon killed KindleGen https://www.amazon.com/gp/feature.html?docId=1000765211
